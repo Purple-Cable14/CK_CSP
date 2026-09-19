@@ -35,3 +35,12 @@ while True:
     except:
         print("That is not a number.")
 
+print(f"your rent is {rent/income*100}% of your income")
+
+print(f"your utilities is {utilities/income*100}% of your income")
+
+print(f"your groceries is {groceries/income*100}% of your income")
+
+print(f"your transportation is {transportation/income*100}% of your income")
+
+print(f"This is your spending money for the month: ${income-rent-utilities-groceries-transportation}")
