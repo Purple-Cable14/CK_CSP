@@ -30,4 +30,4 @@ food2 = input("Tell me another food: ").strip().lower()
 
 number2 = input("Tell me another number: ").strip()
 
-print("Pizza was invented by a "+adjective+" "+nationality+" chef named "+person+". To make a pizza, you needto take a lump of "+noun+", and make a thin, round "+adjective2+" "+noun2+". Then you cover it with "+adjective3+" sauce, "+adjective4+" cheese, and fresh chopped "+plural_noun+". Next you have to bake it in a very hot "+noun3+". When it is done, cut it into "+number+" "+shape+". Some kids like "+food+" pizza the best, but my favorite is the "+food2+" pizza. If I could, I would eat pizza "+number2+" times a day!")
+print("Pizza was invented by a "+adjective+" "+nationality+" chef named "+person+". To make a pizza, you need to take a lump of "+noun+", and make a thin, round "+adjective2+" "+noun2+". Then you cover it with "+adjective3+" sauce, "+adjective4+" cheese, and fresh chopped "+plural_noun+". Next you have to bake it in a very hot "+noun3+". When it is done, cut it into "+number+" "+shape+". Some kids like "+food+" pizza the best, but my favorite is the "+food2+" pizza. If I could, I would eat pizza "+number2+" times a day!")
