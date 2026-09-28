@@ -3,9 +3,9 @@ import random
 
 count = 1
 
-while count <= 10:
+while count <= 20:
     print(count)
-    count += 1
+    count += 2
 
 ducks = 1
 goose = random.randint(1,11)
