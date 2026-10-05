@@ -1,12 +1,14 @@
 # CK, Hangman
 import random
-
+print(random.choice(list))
 # Create a list of 10 words on a seperate txt file (word,word,word)
 
 # Create another file that holds win/loss counts
 
 # Read your files
-with open("")
+with open("words.txt","r") as file:
+    words = file.read().split(",")
+    content = file.read()
 # Use split(",") on the content of the words txt document to create your list of words
 
 # Pull win and lose totals from the other txt file and save them as 2 seperate variables
