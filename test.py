@@ -69,11 +69,6 @@ elif first_choice == "AC":
         user2 = input("As soon as you look up you see a giant spider fall on you...\nYou wake up and see your friend Marco sitting in the corner of the AC\nHe asks what your name is.\nWhat do you tell him: ").strip().capitalize() # Caleb King
         print(f"Well Hiya {user2}")
         story = input("Marco talks about how he saved you from that spider monster\nHe tells you all about his heroic fight and did not stop until his story was finished perfectly.\nHe tells you that he knows a place where we can hide from that hideous monster.\nDo you follow(f) him, or don't(d) follow him?")
-    
-
-
-        
-
         if story == "d":
             outside = input("You kindly decline Marco and instead walk outside. You see the spider coming towards you! Do you want to fight(f) the spider of run(r)?")
             if outside == "r":
