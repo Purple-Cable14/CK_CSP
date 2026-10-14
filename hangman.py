@@ -1,56 +1,182 @@
-# CK, Hangman
+
 import random
-print(random.choice(list))
-# Create a list of 10 words on a seperate txt file (word,word,word)
+import os
 
-# Create another file that holds win/loss counts
+with open("words.txt", "r") as file:
+    inside = file.readlines()
 
-# Read your files
-with open("words.txt","r") as file:
-    words = file.read().split(",")
-    content = file.read()
-# Use split(",") on the content of the words txt document to create your list of words
+word = random.choice(inside).strip()
 
-# Pull win and lose totals from the other txt file and save them as 2 seperate variables
+if os.path.exists("stats.txt"):
+    with open("stats.txt", "r") as stats:
+        content = stats.read()
+        content = content.splitlines()
 
-# Build the hangman game
+    wins = int(content[0])
+    losses = int(content[1])
+else:
+    wins = 0
+    losses = 0
 
-#Save the correct word as a variable (random.choice(name of the list))
-# Number of guesses
-# What letters have been guessed
+incorrect_guesses = 0
 
-# Function to display the hangman (Needs number of wrong guesses)
-"""_____
-   |   |
-   |   O
-   |  /|\\
-   |  / \\
-   |_______
-"""
+guessed = []
 
-# Function to show the letters and spaces (The correct word, letters that have been guessed)
-# Variable for display word (starts as an empty string)
-# Loop over the correct word
-# Check if letter has been guessed
-    # Then add the letter to the display word
-# if they haven't guessed the letter
-    #add an underscore to the display word
-# return the finished display word (outside of the loop)
+amount_of_guesses = 6
 
-    # Main game loop (While true)
-        #call function to show hangman
-        # print function call to show display word
-        # create variable and ask user to guess a letter
-        # add the letter to list of guessed letters
-        # check (if not letter in word:)
-            # increase incorrect guesses
-        # check if (display word) is same as the word
-            # tell user they won
-            # increase win total
-            # ask if they want to play again
-                #reset random word, rest wrong guess count
-        # check to see if they lost (if they have 6 wrong guesses)
-            # tell them they lost
-            # tell them what the word was
-            # increase the lost count
-            # ask if they want to play again
+print("Guess a letter to find the word!")
+print()
+
+while incorrect_guesses < amount_of_guesses:
+
+    print("the word is: ", end=" ")
+
+    for letter in word:
+        if letter in guessed:
+            print(letter, end=" ")
+        else:
+            print("_", end=" ")
+
+    print()
+    print()
+
+    if len(guessed) == 0:
+        print("no guessed letters.")
+    else:
+        print("Guessed letters:", end=" ")
+        for letter in guessed:
+            print(letter, end=" ")
+        print()
+
+    print("amount of guesses you can get wrong:", amount_of_guesses - incorrect_guesses)
+
+    if incorrect_guesses == 0:
+        print("""
+_________
+|       |
+|
+|
+|
+|
+|
+|____________
+""")
+
+    elif incorrect_guesses == 1:
+        print("""
+_________
+|       |
+|       O
+|
+|
+|
+|
+|____________
+""")
+
+    elif incorrect_guesses == 2:
+        print("""
+_________
+|       |
+|       O
+|       |
+|       |
+|
+|
+|____________
+""")
+
+    elif incorrect_guesses == 3:
+        print("""
+_________
+|       |
+|       O
+|      /|
+|     / |
+|
+|
+|____________
+""")
+
+    elif incorrect_guesses == 4:
+        print("""
+_________
+|       |
+|       O
+|      /|\\
+|     / | \\
+|
+|
+|____________
+""")
+
+    elif incorrect_guesses == 5:
+        print("""
+_________
+|       |
+|       O
+|      /|\\
+|     / | \\
+|      /
+|     /
+|____________
+""")
+
+    elif incorrect_guesses == 6:
+        print("""
+_________
+|       |
+|       O
+|      /|\\
+|     / | \\
+|      / \\
+|     /   \\
+|____________
+""")
+
+    guess = input("Guess a letter: ")
+
+    if len(guess) != 1:
+        print("Please enter only one letter.")
+        continue
+
+    if not guess.isalpha():
+        print("Please enter a letter.")
+        continue
+
+    if guess in guessed:
+        print("You already guessed that letter!")
+        continue
+
+    guessed.append(guess)
+
+    if guess in word:
+        print("Nice!", guess, "is in the word!")
+    else:
+        print("Sorry,", guess, "is not in the word.")
+        incorrect_guesses = incorrect_guesses + 1
+
+    finished = True
+
+    for letter in word:
+        if letter not in guessed:
+            finished = False
+
+    if finished:
+        print()
+        print("Congratulations! You guessed the word:", word)
+        wins = wins + 1
+        break
+
+if incorrect_guesses == amount_of_guesses:
+    print()
+    print("Game over! You ran out of guesses.")
+    print("The word was:", word)
+    losses = losses + 1
+
+with open("stats.txt", "w") as stats:
+    stats.write(str(wins) + "\n")
+    stats.write(str(losses) + "\n")
+
+print()
+print("Updated Stats - Wins:", wins, "Losses:", losses)

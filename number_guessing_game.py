@@ -21,3 +21,39 @@ while True:
     else:
         print ("The number is higher.")
         number_of_guesses += 1
+
+        direction = input("Do you want to (E)ncode or (D)ecode: ")
+message = input("What is your message: ")
+amount = int(input("How much do you want to shift: "))
+
+def caeser_shift(message, shift):
+    new_message = ""
+
+    for letter in message:
+        if letter.isalpha():
+            number = ord(letter)
+            number = number + shift
+
+            if letter.isupper():
+                if number > 90:
+                    number = number - 26
+                if number < 65:
+                    number = number + 26
+            else:
+                if number > 122:
+                    number = number - 26
+                if number < 97:
+                    number = number + 26
+
+            letter = chr(number)
+
+        new_message = new_message + letter
+
+    return new_message
+
+if direction == "E":
+    message = caeser_shift(message, amount)
+    print("Your encrypted message is:", message)
+else:
+    message = caeser_shift(message, -amount)
+    print("Your decrypted message is:", message)
