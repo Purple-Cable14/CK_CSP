@@ -1,37 +1,23 @@
-# CK, Memory Diagram Activity
+while True:
+    user_input = input("How many Fibonacci numbers do you want? Enter a whole number from 1 to 20: ")
 
-name = "Caleb"
+    try:
+        count = int(user_input)
+    except ValueError:
+        print("You need to type a whole number.")
+        continue
 
-print(f"The variable name has a value of {name} and is saved at {id(name)}")
+    if count < 1 or count > 10000:
+        print("Please stay in the range of 1 to 20.")
+        continue
 
-age = 14
+    break
 
-print(f"The variable age has a value of {age} and is saved at {id(age)}")
+sequence = []
+a, b = 0, 1
 
-score = 10
+for _ in range(count):
+    sequence.append(a)
+    a, b = b, a + b
 
-print(f"The variable score has a value of {score} and is saved at {id(score)}")
-
-score = 25
-
-print(f"The variable score has a value of {score} and is saved at {id(score)}")
-
-height = 4.11
-
-print(f"The variable height has a value of {height} and is saved at {id(height)}")
-
-city = "Orem"
-
-print(f"The variable city has a value of {city} and is saved at {id(city)}")
-
-zip_code = 80202
-
-print(f"The variable zip_code has a value of {zip_code} and is saved at {id(zip_code)}")
-
-price1 = 10
-
-print(f"The variable price1 has a value of {price1} and is saved at {id(price1)}")
-
-price2 = 10
-
-print(f"The variable price2 has a value of {price2} and is saved at {id(price2)}")
+print(*sequence)
