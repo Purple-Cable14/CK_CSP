@@ -34,7 +34,7 @@ if first_choice == "UVU":
                       print("You start to charge the spider monster\nIt also starts to charge at you\nWhen you two clash the monster instantly defeats you\nYou Died!")
                  elif distract_guarde == "t":
                       taunt = input("You taunt the monster\nThe monster notices and starts to chase you\nYou go around the AC and to the tree\nAs the monster comes around and charges at you, you climb the tree.\nYou find a UVU card in the tree\nAfter waiting...\nAnd waiting...\nAnd more waiting...\n The monster leaves you alone and starts to wander off\nDo you follow(f) the monster, or do you sprint to UVU(u)").strip().lower()
-                      if taunt == "v":
+                      if taunt == "u":
                            print("You sprint to the UVU building\nRight before you get there the spider monster jumps out from its hiding place and catches you\nYou Died!")
                       elif taunt == "f":
                            follow = input("You follow the spider to UVU\nAfter a while you lose track of the spider\nBut you find Marco\nMarco said that he barely survived the spider attacking him\nHe asks if you want to go bowling no that you have a UVU card\nDo you say yes(y), or no(n)").strip().lower()
