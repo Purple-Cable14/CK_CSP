@@ -1,0 +1,20 @@
+# CK, Verify Report
+
+Test input: 4, no. Expected: $0. Actual: $0. Pass/Fail: Pass.
+Test input: 5, no. Expected: $8. Actual: $8. Pass/Fail: Pass.
+Test input: 12, no. Expected: $8. Actual: $12. Pass/Fail: Fail.
+Test input: 13, no. Expected: $12. Actual: $12. Pass/Fail: Pass.
+Test input: 64, no. Expected: $12. Actual: $12. Pass/Fail: Pass.
+Test input: 65, no. Expected: $9. Actual: $9. Pass/Fail: Pass.
+Test input: 1, yes. Expected: $0. Actual: $-3. Pass/Fail: Fail.
+Test input: 14, yes. Expected: $9. Actual: $9. Pass/Fail: Pass.
+Test input: -2, yes.Expected: Error. Actual: $-3. Pass/Fail: Fail.
+Test input: Ahhhhhhhh, no. Expected: Error. Actual: Error. Pass/Fail: Pass.
+
+The input “12” and “no” has a problem. It should say that it costs $8, but it really says that it costs $12. This is a logic error.
+
+The input “1” and “yes” has a problem. It should say that it costs $0, but it really says that it costs $-3. This is a logic error.
+
+The input “-2” and “yes” has a problem. It should say Error, but it really says that it costs $-3. This is a logic error.
+
+The program asks you what your age is, if it is a negative number, then it will keep asking. If it is a positive number, then it will ask if you're a matinee. Based on your age you will have a certain price, but if you pick matinee, then it will lower the price by $3. If you go into the negatives or price because of matinee then the program will update it to 0. The program will then print your total price.
